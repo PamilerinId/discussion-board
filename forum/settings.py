@@ -26,7 +26,7 @@ SECRET_KEY = '%s$of&7q0j558is9n8sqpf6cgf8954&gk(65x7qdtrm)uee%+6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fuo-boards.herokuapp.com', ]
 
 
 # Application definition
