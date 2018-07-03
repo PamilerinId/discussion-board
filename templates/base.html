@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}FUO Boards{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content="Pamílẹ́rìn Ìdòwú">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Google Meta-->
+    <meta name="title" content="FUO Boards">
+    <meta name="keywords" content="fountain university, computer science">
+    <meta name="description" content="CPS Final Year Project">
+    <!--Facebook/Open graph Meta-->
+    <meta property="og:title" content="FUO Boards" />
+    <meta property="og:description" content="CPS Final Year Project">
+    <meta property="og:url" content="https://pamilerin.com.ng/">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FUO Boards" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="en_NG" />
+    <meta property="og:locale" content="yo_NG" />
+    <meta property="og:locale" content="ig_NG" />
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-yAYSLJjzniZh9Kau9E1v1ma5CzvyHF8fPK/xUpaRx1XTH9r60WxzDivvHG3xm6Hn" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:500|Wendy+One" rel="stylesheet">
+    {% load static %}
+    {% block stylesheet %}{% endblock %}
+</head>
+<body>
+    {% block body %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 4em">
+            <a class="navbar-brand" href="{% url 'home'%}" style="font-family: 'Wendy One', sans-serif;"><strong>FUO</strong> Boards</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                            <a class="dropdown-item" href="#">My account</a>
+                            <a class="dropdown-item" href="#">Change password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+                {% else %}
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="#">College <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link btn btn-sm btn-outline-secondary" href="{% url 'login' %}">Login</a>
+                    <a class="nav-item nav-link btn btn-success" href="{% url 'signup' %}">Register</a>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+    <div class="container">
+        <ol class="breadcrumb my-4">
+            {% block breadcrumb %}
+            {% endblock %}
+        </ol>
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% endblock body %}
+    <footer><a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangomade124x25_grey.gif" border="0" alt="Made with Django." title="Made with Django." /></a></footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% block javascript %}{% endblock %}
+</body>
+</html>
