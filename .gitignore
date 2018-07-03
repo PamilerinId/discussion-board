@@ -1,6 +1,5 @@
 .idea
 .env
-forum/settings.py
 *.pyc 
 TODO.txt
 accounts/migrations
