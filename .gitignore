@@ -2,6 +2,4 @@
 .env
 *.pyc 
 TODO.txt
-accounts/migrations
-board/migrations
 db.sqlite3
