@@ -1,4 +1,8 @@
 .idea
 .env
 *.pyc 
+<<<<<<< HEAD
 TODO.txt
+=======
+TODO.txt
+>>>>>>> daf9061c817b379ecb8b5377e3d45b812fd6adaf
