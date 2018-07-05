@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'board',
     'widget_tweaks',
     'markdown',
-    'social_django',
+    # 'social_django',
 ]
 
 MIDDLEWARE = [
